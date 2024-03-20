@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CustomRegisteredUserController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,9 +15,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+Route::get('/', [HomeController::class, 'create'])->name('home');
 
 // Ruta para procesar la solicitud de registro de administradores
 Route::get('/register', [CustomRegisteredUserController::class, 'create'])->name('register');
