@@ -129,10 +129,17 @@
                         </label>
                     @else
                         @foreach ($hotels as $hotel)
-                            <label
-                                class="flex justify-center mx-auto max-w-6xl pb-3  py-2 px-2 text-2xl uppercase font-bold dark:font-bold text-gray-900 dark:text-gray-200">
-                                {{ $hotel->slogan }}
-                            </label>
+                            @if ($hotel->slogan == null)
+                                <label
+                                    class="flex justify-center mx-auto max-w-6xl pb-3  py-2 px-2 text-2xl uppercase font-bold dark:font-bold text-gray-900 dark:text-gray-200">
+                                    Bienvenido Craftyniano 👽
+                                </label>
+                            @else
+                                <label
+                                    class="flex justify-center mx-auto max-w-6xl pb-3  py-2 px-2 text-2xl uppercase font-bold dark:font-bold text-gray-900 dark:text-gray-200">
+                                    {{ $hotel->slogan }}
+                                </label>
+                            @endif
                         @endforeach
                     @endif
                 </div>
@@ -159,6 +166,7 @@
                     {{-- @livewire('inf-reservas-component') --}}
                 </div>
 
+                {{-- --> slogan final --}}
 
                 <div class="mt-5 flex justify-center">
                     @if ($hotels->isEmpty())
@@ -168,15 +176,20 @@
                         </label>
                     @else
                         @foreach ($hotels as $hotel)
-                            <label
-                                class="flex justify-center mx-auto max-w-6xl pb-3  py-2 px-2 text-2xl uppercase font-bold dark:font-bold text-gray-900 dark:text-gray-200">
-                                {{ $hotel->final_slogan }}
-                            </label>
+                            @if ($hotel->final_slogan == null)
+                                <label
+                                    class="flex justify-center mx-auto max-w-6xl pb-3  py-2 px-2 text-xl uppercase font-bold dark:font-bold text-gray-900 dark:text-gray-200">
+                                    Hasta pronto Craftyniano 👋
+                                </label>
+                            @else
+                                <label
+                                    class="flex justify-center mx-auto max-w-6xl pb-3  py-2 px-2 text-2xl uppercase font-bold dark:font-bold text-gray-900 dark:text-gray-200">
+                                    {{ $hotel->final_slogan }}
+                                </label>
+                            @endif
                         @endforeach
                     @endif
                 </div>
-
-
             @elseif ($section == 'about')
                 <div>
                     <x-label

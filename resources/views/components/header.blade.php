@@ -9,11 +9,17 @@
                 <img src="img/crafty-dark-1.png" class="hidden dark:block h-20 w-36 rounded-full object-cover">
             @else
                 @foreach ($hotels as $hotel)
-                    <div class="flex justify-center">
-                        <img src="{{ $hotel->photo_profile }}" class="dark:hidden h-20 w-20 rounded-full object-cover">
-                        <img src="{{ $hotel->photo_profile }}"
-                            class="hidden dark:block h-20 w-20 rounded-full object-cover">
-                    </div>
+                    @if ($hotel->photo_profile == null)
+                        <img src="img/ligth2.png" class="dark:hidden h-20 w-36 rounded-full object-cover">
+                        <img src="img/crafty-dark-1.png" class="hidden dark:block h-20 w-36 rounded-full object-cover">
+                    @else
+                        <div class="flex justify-center">
+                            <img src="{{ $hotel->photo_profile }}"
+                                class="dark:hidden h-20 w-20 rounded-full object-cover">
+                            <img src="{{ $hotel->photo_profile }}"
+                                class="hidden dark:block h-20 w-20 rounded-full object-cover">
+                        </div>
+                    @endif
                 @endforeach
             @endif
 

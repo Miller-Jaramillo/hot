@@ -12,8 +12,8 @@ class UserTest extends TestCase
 {
 
 
-    //use RefreshDatabase;
-    use DatabaseTransactions;
+    use RefreshDatabase;
+   // use DatabaseTransactions;
 
     public function testCreateUser()
     {

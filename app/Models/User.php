@@ -61,4 +61,10 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+
+    public function hotel()
+    {
+        return $this->hasOne(Hotel::class);
+    }
 }
